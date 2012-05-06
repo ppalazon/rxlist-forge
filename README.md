@@ -1,6 +1,5 @@
 # rxlist-forge
 
-
 JBoss Forge plugin for recopilate key properties list from source code with regular expressions
 
 ## Utilite
@@ -18,5 +17,6 @@ multilingual keys.
 I have 2 multilingual files (messages_en.properties and messages_es.properties)
 
 messages_en.properties:
+
     say.hello=Hi!
     say.goodbye=Good bye!
