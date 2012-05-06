@@ -41,7 +41,7 @@ Normally, when I write java or xhtml code I don't remember which multilingual ke
 plugin to search and complete multilingual properties files. At this example it's easy to review, but it's more
 complicated with big source codes.
 
-## Commands
+### Commands
 
 Update all messages_*.properties files with all found keys in *.java. The last regular expression describe where is
 multilingual keys -> messages.getMessage\\(\"(.*?)\"\\). This only get string key
@@ -71,3 +71,9 @@ The final properties file, will be:
     say.goodmorning=Buenos dias!
     command.success.message=>>command.success.message
     person.preffix=>>person.preffix
+    
+## Install
+
+Execute on forge environment:
+
+    forge git-plugin git://github.com/ppalazon/rxlist-forge.git
