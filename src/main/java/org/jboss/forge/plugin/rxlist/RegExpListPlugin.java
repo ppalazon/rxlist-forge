@@ -24,7 +24,6 @@ import org.jboss.forge.shell.plugins.Option;
 import org.jboss.forge.shell.plugins.PipeOut;
 import org.jboss.forge.shell.plugins.Plugin;
 
-
 @Alias("rxlist")
 public class RegExpListPlugin implements Plugin {
 
@@ -42,6 +41,10 @@ public class RegExpListPlugin implements Plugin {
 	    @Option(name = "rxSearchFiles") final String rxSearchFiles, @Option(name = "regexp") final String regexp)
 	    throws ConfigurationException {
 
+	out.println("Searching " + regexp + " in all " + rxSearchFiles + " for update " + rxProperties);
+
+	String regx = regexp.replace("''", "\"");
+
 	// Check if we are in a directory
 	DirectoryResource currentDirectory = shell.getCurrentDirectory();
 	// Search all regexp on rxSearchFiles
@@ -49,7 +52,7 @@ public class RegExpListPlugin implements Plugin {
 
 	// Extract key from searched regexp
 	Set<String> foundedKey = new HashSet<String>();
-	Pattern searchIn = Pattern.compile(regexp);
+	Pattern searchIn = Pattern.compile(regx);
 	for (FileResource<?> file : searchFiles) {
 	    try {
 		String content = IOUtils.toString(file.getResourceInputStream());
