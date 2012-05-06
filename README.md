@@ -2,7 +2,7 @@
 
 JBoss Forge plugin for recopilate key properties list from source code with regular expressions
 
-## Utilite
+## Utility
 
 I find this useful when I'm writing multilingual applications. Normally, I'm writing java or xhtml code and I insert
 multilingual code and I don't complete properties files with multilingual keys. It's very tedious write in 2 files 
