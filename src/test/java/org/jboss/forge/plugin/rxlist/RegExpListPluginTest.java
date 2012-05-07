@@ -9,7 +9,6 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.forge.plugin.rxlist.RegExpListPlugin;
 import org.jboss.forge.resources.DirectoryResource;
 import org.jboss.forge.test.AbstractShellTest;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -56,9 +55,13 @@ public class RegExpListPluginTest extends AbstractShellTest {
 	        .execute(
 	                "rxlist --rxProperties messages_.*.properties --rxSearchFiles .*.java --regexp Componente1.getMessage\\(\"(.*?)\"\\);");
 
+	System.out.println(getOutput());
+
 	getShell()
 	        .execute(
 	                "rxlist --rxProperties messages_.*.properties --rxSearchFiles .*.xhtml --regexp messages.getMessage\\('(.*?)'\\)");
+
+	System.out.println(getOutput());
 
 	counten = countKeys(new File(resources, "messages_en.properties"));
 	countes = countKeys(new File(resources, "messages_es.properties"));

@@ -76,14 +76,13 @@ public class RegExpListPlugin implements Plugin {
 	    propConfiguration.setAutoSave(true);
 	    for (String key : foundedKey) {
 		if (!propConfiguration.containsKey(key)) {
-		    out.println(ShellColor.GREEN, "Added " + key);
+		    out.println(ShellColor.GREEN, "Added " + key + " to " + fileprop.getName());
 		    propConfiguration.addProperty(key, ">>" + key);
 		}
 	    }
 	    // propConfiguration.save();
 	}
 	// Add not inserted keys with default value
-
     }
 
 }
