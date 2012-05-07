@@ -51,6 +51,8 @@ public class RegExpListPluginTest extends AbstractShellTest {
 
 	getShell().execute("cd " + tempDir.getFullyQualifiedName());
 
+	System.out.println("Temporal dir " + tempDir.getFullyQualifiedName());
+
 	getShell()
 	        .execute(
 	                "rxlist --rxProperties messages_.*.properties --rxSearchFiles .*.java --regexp Componente1.getMessage\\(\"(.*?)\"\\);");
