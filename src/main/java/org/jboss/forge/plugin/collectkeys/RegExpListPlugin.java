@@ -36,9 +36,12 @@ public class RegExpListPlugin implements Plugin {
     @Inject
     RegExpFiles regExpFiles;
 
-    @DefaultCommand
-    public void run(PipeOut out, @Option(name = "property-files") final String propertyFiles,
-	    @Option(name = "source-files") final String sourceFiles, @Option(name = "key-pattern") final String keyPattern)
+    @DefaultCommand(help = "Collect key properties list from source code with regular expressions")
+    public void run(
+	    PipeOut out,
+	    @Option(name = "property-files", help = "Regular expression to match property files") final String propertyFiles,
+	    @Option(name = "source-files", help = "Regular expression to match source files to search for message keys") final String sourceFiles,
+	    @Option(name = "key-pattern", help = "Regular expression for matching a key in a source file") final String keyPattern)
 	    throws ConfigurationException {
 
 	out.println("Searching " + keyPattern + " in all " + sourceFiles + " for update " + propertyFiles);
