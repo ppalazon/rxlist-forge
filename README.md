@@ -41,12 +41,26 @@ Normally, when I write java or xhtml code I don't remember which multilingual ke
 plugin to search and complete multilingual properties files. At this example it's easy to review, but it's more
 complicated with big source codes.
 
-### Commands
+### Commands name and parameters
+
+There are only one command in this plugin
+	
+	collect-keys
+	
+### Parameters
+
+	--property-files : regular expression to match property files (was --rxProperties)
+	
+	--source-files : regular expression to match source files to search for message keys (was --rxSearchFiles)
+	
+	--key-pattern : regular expression for matching a key in a source file (was --regexp)
+
+### Example commands
 
 Update all messages_*.properties files with all found keys in *.java. The last regular expression describe where is
 multilingual keys -> messages.getMessage\\(\"(.*?)\"\\). This only get string key
 
-    rxlist --rxProperties messages_.*.properties --rxSearchFiles .*.java --regexp messages.getMessage\\(\"(.*?)\"\\);
+    collect-keys --property-files messages_.*.properties --source-files .*.java --key-pattern messages.getMessage\\(''(.*?)''\\);
     
 With example above, this will insert
 
@@ -56,7 +70,7 @@ in messages_en.properties and messages_es.properties
 
 We can use this with xhtml file with:
 
-    rxlist --rxProperties messages_.*.properties --rxSearchFiles .*.xhtml --regexp messages.getMessage\\('(.*?)'\\)")
+    collect-keys --property-files messages_.*.properties --source-files .*.xhtml --key-pattern messages.getMessage\\('(.*?)'\\)")
     
 And this will insert:
 
