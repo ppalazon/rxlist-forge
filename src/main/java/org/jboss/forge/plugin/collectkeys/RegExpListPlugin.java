@@ -20,11 +20,13 @@ import org.jboss.forge.shell.ShellColor;
 import org.jboss.forge.shell.ShellPrompt;
 import org.jboss.forge.shell.plugins.Alias;
 import org.jboss.forge.shell.plugins.DefaultCommand;
+import org.jboss.forge.shell.plugins.Help;
 import org.jboss.forge.shell.plugins.Option;
 import org.jboss.forge.shell.plugins.PipeOut;
 import org.jboss.forge.shell.plugins.Plugin;
 
 @Alias("collect-keys")
+@Help(value = "Collect key properties list from source code with regular expressions")
 public class RegExpListPlugin implements Plugin {
 
     @Inject
@@ -39,9 +41,9 @@ public class RegExpListPlugin implements Plugin {
     @DefaultCommand(help = "Collect key properties list from source code with regular expressions")
     public void run(
 	    PipeOut out,
-	    @Option(name = "property-files", help = "Regular expression to match property files") final String propertyFiles,
-	    @Option(name = "source-files", help = "Regular expression to match source files to search for message keys") final String sourceFiles,
-	    @Option(name = "key-pattern", help = "Regular expression for matching a key in a source file") final String keyPattern)
+	    @Option(name = "property-files", description = "Regular expression to match property files", help = "Regular expression to match property files") final String propertyFiles,
+	    @Option(name = "source-files", description = "Regular expression to match source files to search for message keys", help = "Regular expression to match source files to search for message keys") final String sourceFiles,
+	    @Option(name = "key-pattern", description = "Regular expression for matching a key in a source file", help = "Regular expression for matching a key in a source file") final String keyPattern)
 	    throws ConfigurationException {
 
 	out.println("Searching " + keyPattern + " in all " + sourceFiles + " for update " + propertyFiles);
